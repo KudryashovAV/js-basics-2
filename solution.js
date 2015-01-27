@@ -24,10 +24,11 @@ function sqrt(x) {
 }
 
 function sqrtIter(guess, x) {
-  if (isGoodEnough(guess, x)) {
-    return guess;
+  var new_guess = improve(guess, x)
+  if (isGoodEnough(guess, new_guess)) {
+    return new_guess;
   } else {
-    return sqrtIter(improve(guess, x), x)
+    return sqrtIter(new_guess, x)
   }
 }
 
@@ -39,8 +40,8 @@ function average(x, y) {
   return (x + y) / 2;
 }
 
-function isGoodEnough(guess, x) {
-  if (Math.abs(square(guess) - x) < 0.00001) {
+function isGoodEnough(guess, new_guess) {
+  if ((Math.abs(guess - new_guess))/guess <= 0.0001) {
   return true
   }
 }
