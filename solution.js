@@ -11,7 +11,7 @@ function isEven(number) {
 function pascal(row, col) {
   if (row < col) {
     return undefined;
-  } else if (col < 1 || row < 1 || row == col) {
+  } else if (col < 1 || row == col) {
     return 1;
   } else {
     return pascal((row - 1), (col - 1)) + pascal((row - 1), col)
@@ -41,16 +41,8 @@ function average(x, y) {
 }
 
 function isGoodEnough(guess, new_guess) {
-  if ((Math.abs(guess - new_guess))/guess <= 0.0001) {
-  return true
-  }
+  return Math.abs(guess - new_guess)/guess <= 0.0001;
 }
-
-
-function square(x) {
-  return x * x;
-}
-
 
 module.exports.isEven = isEven;
 module.exports.pascal = pascal;
